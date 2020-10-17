@@ -26,7 +26,7 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Colomn   | Type   | Options     |
+| Column   | Type   | Options     |
 | -------- | ------ | ----------- |
 | name     | string | null: false |
 | email    | string | null: false |
