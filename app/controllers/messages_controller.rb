@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @room = Room.find(params[:room_id])
+    @messages = @room.messages.includes(:user)
   end
 # @room.messages.newでチャットルームに紐づいたメッセージのインスタンスを生成し、
 # message_paramsを引数にして、praivateメソッドを呼び出す
@@ -12,6 +13,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to room_messages_path(@room)
     else
+      @messages = @room.messages.includes(:user)
       render :index
     end
   end
